@@ -42,7 +42,7 @@ export function createNewUserDB(user){
     };
     return async function(dispatch){
         return await setDoc(doc(db, 'users', user.uid), newUser)
-        .then(() => dispatch({type: 'CREATE_ACCOUNT', payload: newUser}))
+        .then(() => dispatch({type: 'SET_USER', payload: newUser}))
         .catch((error) => {
             console.log(error)
         });
@@ -50,12 +50,11 @@ export function createNewUserDB(user){
 }
 
 export function getUserDB(userId){
-    console.log(userId)
     let docRef = doc(db, 'users', userId);
     return async function(dispatch){
         return await getDoc(docRef)
         .then((r) => r.data())
-        .then((newUser) => dispatch({type: 'CREATE_ACCOUNT', payload: newUser}))
+        .then((newUser) => dispatch({type: 'SET_USER', payload: newUser}))
         .catch((error) => {
             console.log(error)
         });

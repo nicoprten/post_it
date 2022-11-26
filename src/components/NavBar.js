@@ -24,7 +24,7 @@ function NavBar(){
         <div className='flex items-center justify-around gap-2 text-white p-2 rounded-b border-b-2 border-gray'>
             <Link className='font-bold' to='/'>Home</Link>
             <div className='flex items-center gap-2 bg-black rounded-3xl hover:bg-black-light duration-200'>
-                {currentUser ?
+                {(currentUser && currentUser.profile_picture !== ' ') ?
                     <div className='relative'>
                         <button className='flex gap-2 items-center p-2' onClick={() => setShowUserMenu(!showUserMenu)}>
                             <img className='w-[40px] h-[40px] rounded-full' src={currentUser.profile_picture} alt={`User profile picture of ${currentUser.name}`} />
@@ -35,7 +35,7 @@ function NavBar(){
                             <DotsThree size={32} />
                         </button>
                         {showUserMenu &&
-                            <div className='flex flex-col items-start font-bold text-sm absolute bg-black py-2 rounded-3xl border-2 border-black-light shadow' onClick={() => setShowUserMenu(!showUserMenu)}>
+                            <div className='flex flex-col items-start font-bold text-sm absolute bg-black py-2 rounded-3xl border-2 border-black-light shadow-black-light' onClick={() => setShowUserMenu(!showUserMenu)}>
                                 <button className='w-full text-left p-4 hover:bg-black-light duration-200' onClick={() => navigate('/profile')}>Profile</button>
                                 <button className='p-4 hover:bg-black-light duration-200' onClick={() => handleLogOut()}>Log out @{currentUser.name}</button>
                             </div>

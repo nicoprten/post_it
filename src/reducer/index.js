@@ -7,7 +7,7 @@ export default function rootReducer(state = initialState, action){
         case 'LOG_USER':
             return{
                     ...state,
-                    user: action.payload
+                    user: null
                 }
         case 'LOGOUT_USER':
             return{
@@ -15,6 +15,11 @@ export default function rootReducer(state = initialState, action){
                     user: null
                 }
         case 'CREATE_ACCOUNT':
+            return{
+                    ...state,
+                    user: null
+                }
+        case 'SET_USER':
             return{
                     ...state,
                     user: action.payload

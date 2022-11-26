@@ -21,7 +21,7 @@ export default function CreateAccount(){
         if(currentUser || user.name == ' ' | user.email == ' ' || user.password == ' ') return;
         dispatch(createAccount(user.email, user.password))
         .then((r) => dispatch(createNewUserDB({...r.payload, name: user.name})))
-        .then((r) => localStorage.setItem('user', JSON.stringify(r)))
+        .then((r) => localStorage.setItem('user', JSON.stringify(r.payload)))
         .then(() => navigate('/'));
     }
 

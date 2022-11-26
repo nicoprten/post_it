@@ -12,6 +12,9 @@ module.exports = {
         kanit: ['Kanit', 'Roboto'],
         rubik: ['Rubik']
       },
+      boxShadow: {
+        // gray: '#16181C 0px 0px 15px',
+      },
       display: ["group-hover"],
     },
     colors: {
