@@ -20,6 +20,8 @@ export default function rootReducer(state = initialState, action){
                     user: null
                 }
         case 'SET_USER':
+            console.log(action.payload)
+            localStorage.setItem('user', JSON.stringify(action.payload))
             return{
                     ...state,
                     user: action.payload

@@ -24,10 +24,10 @@ function NavBar(){
         <div className='flex items-center justify-around gap-2 text-white p-2 rounded-b border-b-2 border-gray'>
             <Link className='font-bold' to='/'>Home</Link>
             <div className='flex items-center gap-2 bg-black rounded-3xl hover:bg-black-light duration-200'>
-                {(currentUser && currentUser.profile_picture !== ' ') ?
+                {(currentUser && currentUser.avatar !== ' ') ?
                     <div className='relative'>
                         <button className='flex gap-2 items-center p-2' onClick={() => setShowUserMenu(!showUserMenu)}>
-                            <img className='w-[40px] h-[40px] rounded-full' src={currentUser.profile_picture} alt={`User profile picture of ${currentUser.name}`} />
+                            <img className='w-[40px] h-[40px] rounded-full object-cover' src={currentUser.avatar} alt={`User profile picture of ${currentUser.name}`} />
                             <div className='flex flex-col items-start'>
                                 <p className='font-rubik font-bold text-sm'>@{currentUser.name}</p>
                                 <p className='text-gray text-sm'>{currentUser.email}</p>

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { logIn, getUserDB } from './../actions/index';
+
+import { logInDB, getUserDB } from './../methods/index';
+import { setUser as defineUser } from './../actions/index';
 
 export default function Login(){
 
@@ -18,9 +20,9 @@ export default function Login(){
     const handleLogIn = (e) => {
         e.preventDefault();
         if(currentUser) return;
-        dispatch(logIn(user.email, user.password))
-        .then((r) => dispatch(getUserDB(r.payload.uid)))
-        .then((r) => localStorage.setItem('user', JSON.stringify(r.payload))) 
+        logInDB(user.email, user.password);
+        getUserDB(user.email)
+        .then((user) => dispatch(defineUser(user)))
         .then(() => navigate('/'));
     }
 
