@@ -12,8 +12,11 @@ module.exports = {
         kanit: ['Kanit', 'Roboto'],
         rubik: ['Rubik']
       },
-      boxShadow: {
-        // gray: '#16181C 0px 0px 15px',
+      fontSize: {
+        normal: '16px'
+      },
+      borderWidth: {
+        1: '1px',
       },
       display: ["group-hover"],
     },
@@ -22,9 +25,10 @@ module.exports = {
       'white': '#FFFFFF',
       'black': '#070707',
       'black-light': '#16181C',
-      'gray': '#9CA3AF',
+      'gray': '#536471',
       'blue-dark': '#123540',
-      'blue': '#195C89'
+      'blue': '#1D9BF0',
+      'red': 'ED6A5A'
     }
   },
   plugins: [],

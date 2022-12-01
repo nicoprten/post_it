@@ -29,7 +29,7 @@ function NavBar(){
                         <button className='flex gap-2 items-center p-2' onClick={() => setShowUserMenu(!showUserMenu)}>
                             <img className='w-[40px] h-[40px] rounded-full object-cover' src={currentUser.avatar} alt={`User profile picture of ${currentUser.name}`} />
                             <div className='flex flex-col items-start'>
-                                <p className='font-rubik font-bold text-sm'>@{currentUser.name}</p>
+                                <p className='font-rubik font-bold text-sm'>@{currentUser.username}</p>
                                 <p className='text-gray text-sm'>{currentUser.email}</p>
                             </div>
                             <DotsThree size={32} />
@@ -37,7 +37,7 @@ function NavBar(){
                         {showUserMenu &&
                             <div className='flex flex-col items-start font-bold text-sm absolute bg-black py-2 rounded-3xl border-2 border-black-light shadow-black-light' onClick={() => setShowUserMenu(!showUserMenu)}>
                                 <button className='w-full text-left p-4 hover:bg-black-light duration-200' onClick={() => navigate('/profile')}>Profile</button>
-                                <button className='p-4 hover:bg-black-light duration-200' onClick={() => handleLogOut()}>Log out @{currentUser.name}</button>
+                                <button className='p-4 hover:bg-black-light duration-200' onClick={() => handleLogOut()}>Log out @{currentUser.username}</button>
                             </div>
                         }
                     </div>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { logInDB, getUserDB } from './../methods/index';
-import { setUser as defineUser } from './../actions/index';
+import { updateUser } from './../actions/index';
 
 export default function Login(){
 
@@ -22,7 +22,7 @@ export default function Login(){
         if(currentUser) return;
         logInDB(user.email, user.password);
         getUserDB(user.email)
-        .then((user) => dispatch(defineUser(user)))
+        .then((user) => dispatch(updateUser(user)))
         .then(() => navigate('/'));
     }
 
