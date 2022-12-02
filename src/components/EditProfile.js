@@ -28,7 +28,7 @@ const EditProfile = ({ setShowEdit }) => {
     }
 
     return (
-        <div className='min-w-[600px] text-white absolute bg-black p-4 t-0'>
+        <div className='min-w-[600px] text-white rounded absolute bg-black p-4 top-[90px]'>
             <div className='flex justify-between'>
                 <button onClick={() => setShowEdit(false)}>
                     <X className='hover:opacity-80 duration-100' size={22} />

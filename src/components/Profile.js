@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import EditProfile from './EditProfile';
 
@@ -10,11 +11,12 @@ const Profile = () => {
     const [showEdit, setShowEdit] = useState(false);
 
     const currentUser = useSelector(state => state.user);
+    const navigate = useNavigate();
 
     return (
         <>
-            <div className='flex items-center gap-8 border-b-1 border-gray px-4 py-2'>
-                <ArrowLeft className='text-white' size={22} />
+            <div className='flex items-center justify-between border-b-1 border-gray px-4 py-2'>
+                <ArrowLeft className='text-white hover:cursor-pointer hover:text-blue duration-200' size={22} onClick={() => navigate('/')}/>
                 <div>
                     <p className='text-white text-xl'>{currentUser.username}</p>
                     <p className='text-gray text-sm'>0 thoughts</p>
