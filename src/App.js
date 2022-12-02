@@ -23,7 +23,7 @@ export default function App(){
     return(
         <>
             <NavBar />
-            <div className='w-60vw font-kanit mt-4 mx-auto border-2 border-gray rounded p-4'>
+            <div className='max-w-[600px] font-kanit mt-4 mx-auto border-2 border-gray rounded'>
                 <Routes>
                     <Route path={'/'} element={<RequireAuth><Home /></RequireAuth>} />
                     <Route path={'/login'} element={<Login />} />

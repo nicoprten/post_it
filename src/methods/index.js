@@ -1,6 +1,7 @@
-import { auth, db } from './../firebase';
+import { auth, db, storage } from './../firebase';
 import { doc, getDoc, updateDoc, setDoc  } from 'firebase/firestore';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export async function createNewUserDB(user){
     let newUser = {
@@ -25,19 +26,31 @@ export const logInDB = async function(email, password) {
     )
 }
 
-export const updateUserDB = async function(user, field, value){
+export const updateUserDB = async function(user, userUpdated){
     const ref = doc(db, 'users', user);
+    console.log(userUpdated)
     await updateDoc(ref, {
-        [field]: value
+        avatar: userUpdated.avatar,
+        username: userUpdated.username,
+        description: userUpdated.description
     });
 }
 
 export const getUserDB = async function(email){
     let ref = doc(db, 'users', email);
-    const userUpdated = await getDoc(ref)
+    let userUpdated = await getDoc(ref)
     .then(r => r.data())
     .catch((error) => {
         console.log(error)
     });
     return userUpdated;
+}
+
+export const updateImageDB = async function(email, imageFile){
+    const imageRef = ref(storage, `${email}/avatar/profile_picture`);
+    let url = await uploadBytes(imageRef, imageFile)
+    .then((snapshot) => 
+        getDownloadURL(snapshot.ref).then(url => url)
+    )
+    return url;
 }

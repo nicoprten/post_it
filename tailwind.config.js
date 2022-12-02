@@ -10,10 +10,11 @@ module.exports = {
       },
       fontFamily: {
         kanit: ['Kanit', 'Roboto'],
-        rubik: ['Rubik']
+        rubik: ['Rubik'],
+        helvetica: 'Helvetica'
       },
       fontSize: {
-        normal: '16px'
+        normal: '15px'
       },
       borderWidth: {
         1: '1px',
