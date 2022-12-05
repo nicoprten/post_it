@@ -1,7 +1,10 @@
-import React from 'react';
+import { useEffect } from 'react';
 import {Routes, Route, Navigate} from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { getUserDB } from './methods/index';
+import { updateUser} from './actions/index';
 
 // COMPONENTS
 import NavBar from './components/NavBar';
@@ -12,13 +15,21 @@ import Profile from './components/Profile';
 
 import 'tailwindcss/tailwind.css';
 
+
 export default function App(){
+
+    const dispatch = useDispatch();
 
     const currentUser = useSelector(state => state.user);
     console.log(currentUser)
     const RequireAuth = ({ children }) => {
         return currentUser ? children : <Navigate to='/login' />;
     }
+
+    useEffect(()=>{
+        getUserDB(currentUser.email)
+        .then((user) => dispatch(updateUser(user)));
+    }, [])
 
     return(
         <>

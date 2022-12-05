@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateUserDB, getUserDB, updateImageDB } from './../methods/index';
 import { updateUser} from '../actions/index.js';
 
-import { ListPlus, X, Camera } from "phosphor-react";
+import { X, Camera } from "phosphor-react";
 
 const EditProfile = ({ setShowEdit }) => {
 
@@ -28,7 +28,7 @@ const EditProfile = ({ setShowEdit }) => {
     }
 
     return (
-        <div className='min-w-[600px] text-white rounded absolute bg-black p-4 top-[90px]'>
+        <div className='max-w-[600px] min-w-full text-white rounded absolute bg-black p-4 top-[90px] left-0'>
             <div className='flex justify-between'>
                 <button onClick={() => setShowEdit(false)}>
                     <X className='hover:opacity-80 duration-100' size={22} />
