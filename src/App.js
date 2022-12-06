@@ -27,8 +27,10 @@ export default function App(){
     }
 
     useEffect(()=>{
-        getUserDB(currentUser.email)
-        .then((user) => dispatch(updateUser(user)));
+        if(currentUser){
+            getUserDB(currentUser.email)
+            .then((user) => dispatch(updateUser(user)));
+        }
     }, [])
 
     return(

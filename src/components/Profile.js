@@ -14,7 +14,7 @@ const Profile = () => {
     const navigate = useNavigate();
 
     return (
-        <>
+        <div className='relative'>
             <div className='flex items-center justify-between border-b-1 border-gray px-4 py-2'>
                 <ArrowLeft className='text-white hover:cursor-pointer hover:text-blue duration-200' size={22} onClick={() => navigate('/')}/>
                 <div>
@@ -36,7 +36,7 @@ const Profile = () => {
             :
                 null
             }
-        </>
+        </div>
     );
 }
 
