@@ -1,7 +1,9 @@
 import { auth, db, storage } from './../firebase';
-import { doc, getDoc, updateDoc, setDoc  } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+import { v4 } from 'uuid';
 
 export async function createNewUserDB(user){
     let newUser = {
@@ -53,4 +55,27 @@ export const updateImageDB = async function(email, imageFile){
         getDownloadURL(snapshot.ref).then(url => url)
     )
     return url;
+}
+
+export const createPostDB = async function (dataPost){
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const date = dd + '/' + mm + '/' + yyyy;
+
+    const postId = v4();
+
+    const ref = doc(db, 'posts', postId);
+    await setDoc(ref, {
+        thought: dataPost.thought,
+        postId: postId,
+        userId: dataPost.userId,
+        date: date
+    });
 }

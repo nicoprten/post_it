@@ -22,7 +22,7 @@ function NavBar(){
 
     return (
         <div className='flex items-center justify-around gap-2 text-white p-2 rounded-b border-b-2 border-gray'>
-            <Link className='font-bold' to='/'>Home</Link>
+            <Link className='font-bold' to='/'>Post It</Link>
             <div className='flex items-center gap-2 bg-black rounded-3xl hover:bg-black-light duration-200'>
                 {(currentUser && currentUser.avatar !== ' ') ?
                     <div className='relative'>

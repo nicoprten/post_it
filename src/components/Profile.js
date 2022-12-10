@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import EditProfile from './EditProfile';
+import Posts from './Posts';
 
 import { ArrowLeft } from 'phosphor-react';
 
@@ -31,6 +32,7 @@ const Profile = () => {
                 <p className='text-gray'>@{currentUser.username}</p>
                 <p className='text-white text-normal font-helvetica my-4'>{currentUser.description}</p>
             </div>
+            <Posts />
             {showEdit ? 
                 <EditProfile setShowEdit={setShowEdit}/>
             :
