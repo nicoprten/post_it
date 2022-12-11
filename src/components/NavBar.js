@@ -35,8 +35,8 @@ function NavBar(){
                             <DotsThree size={32} />
                         </button>
                         {showUserMenu &&
-                            <div className='flex flex-col items-start font-bold text-sm absolute bg-black py-2 rounded-3xl border-2 border-black-light shadow-black-light' onClick={() => setShowUserMenu(!showUserMenu)}>
-                                <button className='w-full text-left p-4 hover:bg-black-light duration-200' onClick={() => navigate('/profile')}>Profile</button>
+                            <div className='flex flex-col items-start font-bold text-sm absolute z-10 bg-black py-2 rounded-3xl border-2 border-black-light shadow-black-light' onClick={() => setShowUserMenu(!showUserMenu)}>
+                                <button className='w-full text-left p-4 hover:bg-black-light duration-200' onClick={() => navigate(`/${currentUser.email}`)}>Profile</button>
                                 <button className='p-4 hover:bg-black-light duration-200' onClick={() => handleLogOut()}>Log out @{currentUser.username}</button>
                             </div>
                         }

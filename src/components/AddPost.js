@@ -21,7 +21,7 @@ export default function AddPost() {
 
     return(
         <div className='flex p-4 border-b-2 border-gray'>
-            <img className='shrink-0 w-[75px] h-[75px] mr-4 border-4 border-white rounded-full object-cover' src={currentUser.avatar} alt='image test' />
+            <img className='shrink-0 w-[75px] h-[75px] mr-4 border-2 border-black-light rounded-full object-cover' src={currentUser.avatar} alt='image test' />
             <div className='flex flex-col flex-end gap-2 w-full'>
                 <textarea className='bg-black w-full p-2 resize-none focus:outline-0' placeholder='What are you thinking about?' value={newPost.thought} onChange={(e) => setNewPost({...newPost, thought: e.target.value})}/>
                 {newPost.thought ?

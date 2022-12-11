@@ -12,6 +12,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Profile from './components/Profile';
+import Thought from './components/Thought';
 
 import 'tailwindcss/tailwind.css';
 
@@ -41,8 +42,8 @@ export default function App(){
                     <Route path={'/'} element={<RequireAuth><Home /></RequireAuth>} />
                     <Route path={'/login'} element={<Login />} />
                     <Route path={'/signup'} element={<SignUp />} />
-                    <Route path={'/profile'} element={<RequireAuth><Profile /></RequireAuth>} />
-
+                    <Route path={'/:userId'} element={<RequireAuth><Profile /></RequireAuth>} />
+                    <Route path={'/:userId/thought/:postId'} element={<RequireAuth><Thought /></RequireAuth>} />
                 </Routes>
             </div>
         </>

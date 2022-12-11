@@ -29,7 +29,7 @@ module.exports = {
       'gray': '#536471',
       'blue-dark': '#123540',
       'blue': '#1D9BF0',
-      'red': 'ED6A5A',
+      'red': '#F4212E',
       'transparent': 'transparent'
     }
   },
