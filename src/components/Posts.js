@@ -47,7 +47,7 @@ export default function Posts() {
     return (
         <div className='flex flex-col text-white'>
             {allPosts ? allPosts.map((p, i) => 
-                <div className='flex gap-2 p-4 border-b-1 border-gray hover:bg-black-light hover:cursor-pointer' key={p.postId} onClick={() => navigate(`thought/${p.postId}`)}>
+                <div className='flex gap-2 p-4 border-b-1 border-gray relative hover:bg-black-light hover:cursor-pointer' key={p.postId} onClick={() => navigate(`thought/${p.postId}`)}>
                     {currentUser.email === p.userId && <img className='w-[50px] h-[50px] object-cover rounded-full shrink-0' src={currentUser.avatar} alt={'user avatar'}/>}
                     <div className='w-full flex flex-col'>
                         <div className='flex items-center gap-4'>
@@ -56,10 +56,10 @@ export default function Posts() {
                         </div>
                         <p>{p.thought}</p>
                     </div>
-                    <div className='relative'>
+                    <div className='lg:relative'>
                         <DotsThree className='w-[30px] h-[30px] shrink-0 p-1 rounded-full hover:bg-blue-dark hover:text-blue hover:cursor-pointer duration-200' size={32} onClick={(e) => handleShowMenu(e, i)}/>
                         {showThoughtMenu[i] &&
-                            <div className='w-[200px] flex flex-col items-start font-bold font-thin text-sm absolute z-10 bg-black py-2 rounded-3xl border-2 border-black-light shadow-black-light' onClick={() => setShowUserMenu(!showUserMenu)}>
+                            <div className='w-[100%] lg:w-[200px] flex flex-col items-start font-bold font-thin text-sm absolute z-10 bg-black py-2 rounded-3xl lg:border-2 border-black-light shadow-black-light left-0' onClick={() => setShowUserMenu(!showUserMenu)}>
                                 <button className='flex items-center gap-2 w-full text-blue text-left p-4 hover:bg-black-light duration-200'>
                                     <Export size={22} />
                                     Copy link to share
@@ -67,6 +67,9 @@ export default function Posts() {
                                 <button className='flex items-center gap-2 w-full text-red text-left p-4 hover:bg-black-light duration-200'>
                                     <Trash size={22} />
                                     Delete
+                                </button>
+                                <button className="w-[50%] mx-auto mt-2 border-2 border-black-light rounded-3xl p-2 hover:cursor-pointer hover:bg-black-light duration-200" onClick={(e) => handleShowMenu(e, i)}>
+                                    Cancel
                                 </button>
                             </div>
                         }
