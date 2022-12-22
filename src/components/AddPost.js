@@ -17,6 +17,7 @@ export default function AddPost() {
 
     async function postIt(){
         createPostDB(newPost);
+        setNewPost({...newPost, thought: ''})
     }
 
     return(
